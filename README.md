@@ -24,7 +24,7 @@ TrustBill is a serverless application that helps organizations prevent invoice f
 
 ## Architecture
 
-![Architecture Diagram](https://via.placeholder.com/800x400?text=TrustBill+Architecture+Diagram)
+![Architecture Diagram](https://i.postimg.cc/wxZLhq8Q/infrastructure-composer-template-yaml.png)
 
 The application consists of three main Lambda functions:
 
