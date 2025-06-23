@@ -62,14 +62,13 @@ Resources:
     Properties:
       StageName: prod
       TracingEnabled: true
-      Cors: 
-        AllowMethods: "'GET,PUT,POST,OPTIONS'"
-        AllowHeaders: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
-        AllowOrigin: "'*'"
+      Cors:
+        AllowMethods: '''GET,PUT,POST,OPTIONS'''
+        AllowHeaders: '''Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'''
+        AllowOrigin: '''*'''
       Tags:
         Name: !Sub ${AWS::StackName}-DataAPI
         Stack: !Sub ${AWS::StackName}
-
 
   InvoicesBucket:
     Type: AWS::S3::Bucket
