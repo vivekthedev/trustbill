@@ -33,23 +33,27 @@ def incorrect_vendor_info(current_invoice_data):
 
 
 def changed_bank_details(vendor_data, current_invoice_data):
+    matched = []
     for item in vendor_data:
         if (
-            (item.get("VendorBankName") != current_invoice_data.get("VendorBankName"))
+            (item.get("VendorBankName").strip() != current_invoice_data.get("VendorBankName").strip())
             or (
-                item.get("VendorBankAccount")
-                != current_invoice_data.get("VendorBankAccount")
+                item.get("VendorBankAccount").strip()
+                != current_invoice_data.get("VendorBankAccount").strip()
             )
             or (
-                item.get("VendorIFSCCode") != current_invoice_data.get("VendorIFSCCode")
+                item.get("VendorIFSCCode").strip() != current_invoice_data.get("VendorIFSCCode").strip()
             )
             or (
-                item.get("VendorBankRoutingNumber")
-                != current_invoice_data.get("VendorBankRoutingNumber")
+                item.get("VendorBankRoutingNumber").strip()
+                != current_invoice_data.get("VendorBankRoutingNumber").strip()
             )
         ):
-            return True
-    return False
+            matched.append(False)
+        else:
+            matched.append(True)
+    
+    return not any(matched) 
 
 
 def duplicate_invoice(vendor_email, current_invoice_data):
