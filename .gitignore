@@ -1,3 +1,4 @@
 events/
 env/
 .aws-sam
+.pytest_cache/

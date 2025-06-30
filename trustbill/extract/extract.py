@@ -46,8 +46,8 @@ system_prompt = """
         "InvoiceDate": { "type": ["string", "null"], "format": "date" },
         "DueDate": { "type": ["string", "null"], "format": "date" },
         "Currency": { "type": ["string", "null"] },
-        "TotalAmount": { "type": ["string", "null"] },
-        "TaxAmount": { "type": ["string", "null"] },
+        "TotalAmount": { "type": ["number", "null"] },
+        "TaxAmount": { "type": ["number", "null"] },
         "VendorName": { "type": ["string", "null"] },
         "VendorAddress": { "type": ["string", "null"] },
         "VendorGSTIN": { "type": ["string", "null"] },
@@ -65,8 +65,8 @@ system_prompt = """
             "properties": {
             "Description": { "type": ["string", "null"] },
             "Quantity": { "type": ["number", "null"] },
-            "UnitPrice": { "type": ["string", "null"] },
-            "Amount": { "type": ["string", "null"] }
+            "UnitPrice": { "type": ["number", "null"] },
+            "Amount": { "type": ["number", "null"] }
             },
             "required": ["Description", "Quantity", "UnitPrice", "Amount"]
         }

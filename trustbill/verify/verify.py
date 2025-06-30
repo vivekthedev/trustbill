@@ -120,6 +120,16 @@ def lambda_handler(event, context):
         flags["ItemizedInvoice"] = True
 
     tables = get_tables()
+    data["TotalAmount"] = str(data.get("TotalAmount", "-"))
+    data["TaxAmount"] = str(data.get("TaxAmount", "-"))
+    
+    for item in data.get("LineItems", []):
+        for k, v in item.items():
+            if isinstance(v, (int, float)):
+                item[k] = str(v)
+            elif v is None:
+                item[k] = "-"
+
     tables["invoices"].put_item(
         Item={
             "invoiceId": str(uuid.uuid4()),
